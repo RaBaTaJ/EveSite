@@ -125,7 +125,7 @@ def UpdateDB():
                 except TypeError:
                     NewID = 1
                 #Insert Entry
-                Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2})'.format(NewID, row[4], row[1]))
+                Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2},{3},{4},{5})'.format(NewID, row[4], row[1], 0, 0, 0))
 
 
 #TEST CODE FOR REFFERALS
