@@ -108,3 +108,9 @@ def StatisticsView(request):
     FullStats = Statistics.objects.get()
     context = {'FullStats' : FullStats}
     return render(request, 'WalletJournal/Statistics.html', context)
+
+@login_required
+def refferals(request):
+    InvestorsList = CharacterTotalInvestment.objects.order_by('-TotalInvestment')
+    context = {'InvestorsList': InvestorsList}
+    return render(request, 'WalletJournal/Refferals.html', context)

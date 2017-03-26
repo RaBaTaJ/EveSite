@@ -16,6 +16,10 @@ class Transaction(models.Model):
 class CharacterTotalInvestment(models.Model):
     CharacterName = models.CharField("Character Name", max_length=75)
     TotalInvestment = models.FloatField("Total Investment", max_length=75)
+    Refferals = models.IntegerField("Number of Refferals")
+    RefferalBalance = models.FloatField("Refferal Balance", max_length=75)
+    LastRefferalAmount = models.FloatField("Last Refferal Amount", max_length=75)
+
 
     def __str__(self):
         return self.CharacterName
@@ -35,5 +39,6 @@ class Statistics(models.Model):
     TotalInvestments = models.FloatField("Total Invested Value", max_length=75)
     AverageInvestment = models.FloatField("Average Investment", max_length=75)
     TotalDividendsPaid = models.FloatField("Total Dividends Paid", max_length=75)
+    TotalRefferalsPaid = models.FloatField("Total Refferals Paid", max_length=75)
     TotalISKLeft = models.FloatField("Total ISK Left", max_length=75)
     NextDivPayment = models.FloatField("Next Dividend Payment", max_length=75)

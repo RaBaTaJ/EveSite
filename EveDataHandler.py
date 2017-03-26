@@ -90,6 +90,7 @@ def UpdateDB():
     TotalInvestors = 0
     TotalInvestments = 0
     TotalDivPaid = 0
+    TotalRefferalsPaid = 0
     InvestorList = []
 
     for row in CharsInDB :
@@ -100,6 +101,7 @@ def UpdateDB():
 
     #Update Investments based on transactions
     for row in Investments:
+        #If transaction not already processed
         if int(row[6]) not in PastTransactions:
             Cursor.execute("SELECT MAX(id) FROM WalletJournal_pasttransactions")
             TopID = Cursor.fetchone()
@@ -125,6 +127,25 @@ def UpdateDB():
                 #Insert Entry
                 Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2})'.format(NewID, row[4], row[1]))
 
+
+#TEST CODE FOR REFFERALS
+                if row[3] in InvestorList:
+                    Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET Refferals = Refferals + 1  WHERE CharacterName = "{0}"'.format(row[3]))
+                    Cursor.execute('SELECT Refferals FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[3]))
+                    Refferals = Cursor.fetchone()
+                    Refferals = Refferals[0]
+                    if Refferals in (1, 3, 7):
+                        Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET LastRefferalAmount = {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
+                        Cursor.execute('SELECT TotalInvestment FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[2]))
+                        MaxRefferalPayment = Cursor.fetchone()
+                        MaxRefferalPayment = float(MaxRefferalPayment[0])*0.05
+                        if MaxRefferalPayment > row[1]:
+                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
+                        else:
+                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(MaxRefferalPayment, row[3]))
+#TEST CODE FOR REFFERALS
+
+
             elif row[4] != MyChar:
                 #Get new investment value
                 Cursor.execute('SELECT TotalInvestment FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[4]))
@@ -143,7 +164,14 @@ def UpdateDB():
                 NewInvestment = float(CurrentInvestment) + float(row[1])
                 #Update Entry
                 Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET TotalInvestment = {0} WHERE CharacterName = "{1}"'.format(NewInvestment, row[5]))
-    
+
+#TEST CODE FOR REFFERALS
+            if row[4] == MyChar and "REFFERAL" in row[3]:
+                print("Trying to apply refferal payment")
+                #Get new investment value
+                Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
+#TEST CODE FOR REFFERALS
+
     #Update Statistics
     for row in CharsInDB:
         TotalInvestors += 1
@@ -151,19 +179,20 @@ def UpdateDB():
     for row in AllDivs:
         if row[4] == MyChar and "INTEREST" in row[3]:
             TotalDivPaid += row[1]            
-    
+        if row[4] == MyChar and "REFFERAL" in row[3]:
+            TotalRefferalsPaid += row[1]
     try:
         AvInv = TotalInvestments / TotalInvestors
     except:
         AvInv = TotalInvestments / 1
 
-    LiquidISK = TotalInvestments + TotalDivPaid
+    LiquidISK = TotalInvestments + TotalDivPaid + TotalRefferalsPaid
     NextDiv = TotalInvestments * 0.05
     
     try:
-        Cursor.execute('INSERT INTO WalletJournal_statistics VALUES ({0},{1},{2},{3},{4},{5},{6})'.format(1, TotalInvestors, TotalInvestments, AvInv, TotalDivPaid, LiquidISK, NextDiv))
+        Cursor.execute('INSERT INTO WalletJournal_statistics VALUES ({0},{1},{2},{3},{4},{5},{6},{7})'.format(1, TotalInvestors, TotalInvestments, AvInv, TotalDivPaid, LiquidISK, NextDiv, TotalRefferalsPaid))
     except:    
-        Cursor.execute('UPDATE WalletJournal_statistics SET TotalInvestors = {0}, TotalInvestments = {1}, AverageInvestment = {2}, TotalDividendsPaid = {3}, TotalISKLeft = {4}, NextDivPayment = {5} WHERE id = 1'.format(TotalInvestors, TotalInvestments, AvInv, TotalDivPaid, LiquidISK, NextDiv))
+        Cursor.execute('UPDATE WalletJournal_statistics SET TotalInvestors = {0}, TotalInvestments = {1}, AverageInvestment = {2}, TotalDividendsPaid = {3}, TotalISKLeft = {4}, NextDivPayment = {5}, TotalRefferalsPaid = {6} WHERE id = 1'.format(TotalInvestors, TotalInvestments, AvInv, TotalDivPaid, LiquidISK, NextDiv, TotalRefferalsPaid))
 
     #Reset table
     Cursor.execute('DELETE FROM WalletJournal_weeklypayment')
