@@ -1,0 +1,169 @@
+@font-face {
+    font-family: Eve;
+    src: url('eve.ttf'),
+         url('eve.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: Retro;
+    src: url('retro.ttf') format('truetype'),
+         url('retro.eot?#iefix') format('embedded-opentype');
+}  
+
+body {
+    background: black url("images/background.jpg") no-repeat right bottom;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: Eve;
+    color: white;
+    font-size:35pt;
+    text-align:center;
+}
+
+h2 {
+    font-family: Eve;
+    color: white;
+    font-size:20pt;
+    text-align:center;
+}
+
+a:link {
+    color: rgb(255,255,255);
+    text-decoration:none;
+}
+
+a:visited {
+    color: rgb(255,255,255);
+    text-decoration:none;
+}
+
+ul {
+    list-style-type: none;
+    font-family: Retro;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+ul li {
+    line-height: 1.7em;
+    padding: 10px;
+    border-style:solid;
+    border-color:white;
+    border-width:2px 2px 2px 2px;
+    background-color: black;
+    font-family: Retro;
+    color: white;
+}
+
+table, td {
+    white-space: nowrap;
+    width: 98%;
+    font-family: Retro;
+    border-style:solid;
+    border-color:#3A5779;
+    border-width:5px 5px 5px 13px;
+    background:#1B2741;
+    font-size:10pt;
+    color:gray;
+    padding:8px;
+}
+
+th {
+    width: 98%;
+    font-family: Eve;
+    border-style:solid;
+    border-color:#3A5779;
+    border-width:5px 5px 5px 13px;
+    background:#1B2741;
+    font-size:14pt;
+    color:white;
+    padding:15px;
+}
+
+.ErrorMessage {
+    text-align: center;
+    font-family: Retro;
+    color: white;
+    font-size: 20pt;
+}
+
+.Centered {
+    text-align: center;
+}
+
+.NegativeTransaction {
+    font-family:'Arial',serif;
+    font-size:10pt;
+    color: #FF0000;
+}
+
+.PositiveTransaction {
+    font-family:'Arial',serif;
+    font-size:10pt;
+    color: #33FF3C;
+}
+
+.LinkToDetails {
+    font-size:6pt;
+}
+
+.WhiteFont {
+    color:white;
+    text-align: center;
+}
+
+.Balance {
+    font-family:'Arial',serif;
+    font-size:10pt;
+}
+
+div.content {
+    margin: 0 auto;
+    margin-left: 235px;
+    margin-right: auto;
+    width: auto;
+    text-align: center;
+}
+div.side {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: black;
+    width: 136px;
+}
+
+div.box {
+    vertical-align: middle;
+    border-radius: 25px;
+    font-family: "Arial Black", sans-serif;
+    border : solid rgba(25, 25, 25, .2);
+    border-width: 20px;
+    padding: 10px;
+    background: gray;
+    background: rgb(240, 248, 255);
+    background: rgba(220, 220, 220, .7);
+    color: black;
+    text-align: justify;
+    font-size: 12pt;
+}
+
+#EveLogin {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    width:195px;
+    height:30px;
+    background: url("images/EVEConnect.png") no-repeat left top;
+}
+
+#Portrait {
+    display: inline-block;
+    margin: 0 auto;
+    width:195px;
+    height:189px;
+    background: url("images/Portrait.png") no-repeat left top;
+}

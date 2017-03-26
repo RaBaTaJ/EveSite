@@ -1,0 +1,53 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'WalletJournal/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'WalletJournal/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - Statistics</title>
+</head>
+
+<div class="content">
+    <div class="side">
+        <ul>
+        <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+        <li><a href="{% url 'home:index' %}">HOME</a></li>
+        <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+        <li><a href="{% url 'WalletJournal:Investors' %}">INVESTORS</a></li>
+        <li><a href="{% url 'WalletJournal:Weekly Payments' %}">WEEKLY PAYMENTS</a></li>
+        <li><a href="{% url 'WalletJournal:Statistics' %}">STATISTICS</a></li>
+        <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+        <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+        </ul>
+    </div>
+    <h1>FULL INVESTMENT STATISTICS</h1>
+    {% if FullStats %}
+    <table>
+    <tr>
+    <th># INVESTORS</th>
+    <th>TOTAL INV</th> 
+    <th>AVERAGE INV</th>
+    <th>DIV PAID</th>
+    <th>LIQUID ISK</th>
+    <th>NEXT DIV</th>    
+    </tr><tr>
+    <td><div class="WhiteFont">{{ FullStats.TotalInvestors }} Investors</div></td>
+    <td><div class="WhiteFont">{{ FullStats.TotalInvestments|floatformat:2 }} ISK</div></td>
+    <td><div class="WhiteFont">{{ FullStats.AverageInvestment|floatformat:2 }} ISK</div></td>
+    <td><div class="WhiteFont">{{ FullStats.TotalDividendsPaid|floatformat:2 }} ISK</div></td>
+    <td><div class="WhiteFont">{{ FullStats.TotalISKLeft|floatformat:2 }} ISK</div></td>
+    <td><div class="WhiteFont">{{ FullStats.NextDivPayment|floatformat:2 }} ISK</div></td>    
+    </tr>
+    </table>
+    {% else %} 
+    <div class="box"><div class="ErrorMessage"><br>No statistics to display !<br><br></div></div>
+    {% endif %}
+</div>
+
+
+
+
+
+
+
+

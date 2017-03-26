@@ -1,0 +1,41 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'WalletJournal/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'WalletJournal/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - Investor Listing</title>
+</head>
+
+<div class="content">
+    <div class="side">
+            <ul>
+                <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+                <li><a href="{% url 'home:index' %}">HOME</a></li>
+                <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+                <li><a href="{% url 'WalletJournal:Investors' %}">INVESTORS</a></li>
+                <li><a href="{% url 'WalletJournal:Weekly Payments' %}">WEEKLY PAYMENTS</a></li>
+                <li><a href="{% url 'WalletJournal:Statistics' %}">STATISTICS</a></li>
+                <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+            </ul>
+    </div>
+    <h1>FULL INVESTOR LISTING</h1>
+    {% if InvestorsList %}
+    <table>
+        <tr>
+            <th>Character Name</th>
+            <th>Invested Amount</th> 
+        </tr>
+        {% for i in InvestorsList %}
+            <tr>
+                <td><div class="WhiteFont">{{ i.CharacterName }}</div></td>               
+                <td><div class="WhiteFont">{{ i.TotalInvestment|floatformat:2 }} ISK</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <div class="box"><div class="ErrorMessage"><br>No registered investments :( !<br><br></div></div>
+    {% endif %}       
+    </div>
+</div>

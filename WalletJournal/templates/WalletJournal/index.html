@@ -1,0 +1,58 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'WalletJournal/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'WalletJournal/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - My Transactions</title>
+</head>
+
+<div class="content">
+    <div class="side">
+            <ul>
+                <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+                <li><a href="{% url 'home:index' %}">HOME</a></li>
+                <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+                <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
+                <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
+                <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+            </ul>
+    </div>
+    <h1>API-verified Transaction Journal</h1>
+    {% if latest_transaction_list %}
+    <table>
+        <tr>
+            <th>From</th>
+            <th>To</th> 
+            <th>Amount</th>
+            <th>Date/Time</th>
+            <th>Comment</th>
+        </tr>
+        {% for transaction in latest_transaction_list %}
+            <tr>
+                <td><div class="WhiteFont">{{ transaction.TransactionFrom }}</div></td>
+                <td><div class="WhiteFont">{{ transaction.TransactionTo }}</div></td> 
+                <td>
+                    {% if transaction.TransactionAmount < 0 %}
+                    <div class="TransactionAmount NegativeTransaction"> 
+                    {% else %} 
+                    <div class="TransactionAmount PositiveTransaction">
+                    {% endif %}
+                         {{ transaction.TransactionAmount|floatformat:2 }} ISK
+                    </div>
+                </td>
+                <td><div class="LinkToDetails"><a href="{% url 'WalletJournal:detail' transaction.id %}">{{ transaction.TransactionDateTime }}...</a></div></td>
+                <td><div class="WhiteFont">{{ transaction.TransactionComment }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% elif CharName == "NOCHARNAME" %}
+        <div class="box"><div class="ErrorMessage"><p>Please login with the button on the left to see your investment and transactions...</p></div></div>
+    {% elif CharName %}
+        <div class="box"><div class="ErrorMessage"><p>Sorry, no registered investment for {{ CharName }}...</p></div></div>
+    {% endif %}
+    <h2>API updates every 30 minutes.</h2>  
+        
+        </div><br></br>
+</div>

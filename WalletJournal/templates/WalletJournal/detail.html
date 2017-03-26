@@ -1,0 +1,56 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'WalletJournal/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'WalletJournal/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - Details</title>
+</head>
+
+<div class="content">
+    <div class="side">
+        <ul>
+        <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+        <li><a href="{% url 'home:index' %}">HOME</a></li>
+        <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+        <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
+        <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
+        <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+        <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+        </ul>
+    </div>
+    <h1>{{ Transaction.TransactionDateTime }}</h1>
+    <table>
+    <tr>
+    <th>FROM</th>
+    <th>TO</th> 
+    <th>TRANSACTION AMOUNT</th>
+    <th>DATE/TIME</th>
+    <th>TRANSACTION COMMENT</th>    
+    </tr><tr>
+    <td><div class="WhiteFont">{{ Transaction.TransactionFrom }}</div></td>
+    <td><div class="WhiteFont">{{ Transaction.TransactionTo }}</div></td>
+    <td>
+    {% if Transaction.TransactionAmount < 0 %}
+    <div class="TransactionAmount NegativeTransaction"> 
+    {% else %} 
+    <div class="TransactionAmount PositiveTransaction">
+    {% endif %}
+    <div class="Centered">
+    {{ Transaction.TransactionAmount|floatformat:2 }} ISK
+    </div></div>
+    </td>
+    <td><div class="WhiteFont">{{ Transaction.TransactionDateTime }}</div></td>
+    <td><div class="WhiteFont">{{ Transaction.TransactionComment }}</div></td>    
+    </tr>
+    </table>
+    <h2>Feel free to contact EIF SpokesPerson in-game !</h2>
+</div>
+
+
+
+
+
+
+
+

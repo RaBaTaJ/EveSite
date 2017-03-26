@@ -1,0 +1,32 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'home/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - Home</title>
+</head>
+
+<div class="content">
+    <div class="side">
+            <ul>
+                <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+                <li><a href="{% url 'home:index' %}">HOME</a></li>
+                <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+                <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
+                <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
+                <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+            </ul>
+    </div>
+    <h1>EVE Investment Fund</h1>    
+    {% for homenotice in latest_homenotice_list %}
+    <div class="box">
+        {% autoescape off %}{{ homenotice.TextContent|linebreaks }}{% endautoescape %}
+        <div class="credits">On {{ homenotice.PubDate }}, by {{ homenotice.Author }}.</div>
+    </div><br></br>
+    {% endfor %}
+</div>
+
+
+

@@ -1,0 +1,34 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'home/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - About Us</title>
+</head>
+
+<div class="content">
+    <div class="side">
+            <ul>
+                <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+                <li><a href="{% url 'home:index' %}">HOME</a></li>
+                <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+                <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
+                <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
+                <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+            </ul>
+    </div>
+    <h1>EVE Investment Fund</h1>    
+    <div class="box">
+        <h3>What good is your ISK if it just sits in your wallet doing nothing ?</h3>
+        <p>Eve Investment Fund offers you an opportunity to <u>invest your ISK and receive a weekly 5% interest (that's more than 20% monthly) !</u> Go ahead and read our <a href="{% url 'home:InvestmentGuide' %}"><u>INVESTMENT GUIDE</u></a>...</p><br>
+        <p>Thanx to efficient trading techniques, EIF is able to maintain a very high ROI on the market. In the current state of affairs, the limiting factor is ISK while <u>market volumes in New Eden still allow for a much larger turnover.</u> Investment will therefore be open for as long as it stays profitable for EIF to allow more investors in (the next limiting factor being market volume ; you can expect a weekly report on the home page).</p><br>
+        <p>EIF is led by three players who have been active in the EvE universe since 2008, dedicating mostly to Indy and Trading. These players' identities will of course not be disclosed since it could hurt their ingame activites (we don't want every griefer in New Eden on our backs...).</p><br>
+        <div class="credits">By EIF...</div>
+    </div>
+    <h2>EIF</h2>
+</div>
+
+
+

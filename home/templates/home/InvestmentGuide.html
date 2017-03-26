@@ -1,0 +1,65 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}" />
+<link rel="shortcut icon" href="{% static 'home/favicon.ico' %}"/>
+
+<head>
+  <title>EIF - Investment Guide</title>
+</head>
+
+<div class="content">
+    <div class="side">
+            <ul>
+                <li><a href="{% url 'home:About' %}"><div id="portrait"></div></a></li>
+                <li><a href="{% url 'home:index' %}">HOME</a></li>
+                <li><a href="{% url 'home:InvestmentGuide' %}">INVESTMENT GUIDE</a></li>
+                <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
+                <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
+                <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
+                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+            </ul>
+    </div>
+    <h1>EVE Investment Fund</h1>    
+    <div class="box">
+        <h4>EIF INVESTMENT GUIDE</h4>
+
+        <p>The current website is a platform meant for you to check on your investment. You just have to use the "Login with EvE" button on the left to be redirected to your transaction history with EIF :</p><br>
+
+        <div class="disclaimer"><p>The "Log in with EvE" button allows you to log you in on EvE Online's website and chose which character's transaction history you want to see.
+        EIF only retrieves the selected character name in order to check it against the EIF API and retrieve your transactions. EIF requires ABSOLUTELY NO ACCESS TO YOUR ACCOUNT OR DATA when you use the login button (public data only).</p></div><br>
+
+        </div><br><div class="box">
+        <h4>How do I invest ?</h4>
+
+        <p>THE MINIMUM INVESTMENT IS 20M ISK (no maximum investment, please contact EIF beforehand for investments < 20B). Investments less than 20M will not be registered and you will need to ask "EIF SpokesPerson" for a refund.</p><br> 
+        <p>To invest, you just need to send your desired investment amount to "EIF SpokesPerson" (search for "EIF SpokesPerson" ingame, right-click and use the "Give Money" button). Give the API 30 minutes and you should be able to see your investment on the website.</p><br>
+
+        <div class="disclaimer"><p>Your investment should only ever be sent to "EIF SpokesPerson", as you will NEVER be required to send your investment to anyone else than "EIF SpokesPerson". Please be wary of imposters and scammers, thank you.</p></div><br>
+
+        <h4>When do I get paid ?</h4>
+
+        <p>Your 5% interest will be paid on Sunday each week, most likely during the afternoon (EveTime).</p>
+
+        <h4>How can I withdraw my investment ?</h4>
+
+        <p>THE MINIMUM DURATION FOR REGULAR INVESTMENTS IS TWO FULL WEEKS, AND FOUR FULL WEEKS FOR INVESTMENTS > 20B. This rule is meant to prevent any abuse, like investing on Saturday to withdraw on the next Monday... and also to allow us to actually invest the money and get some return before investors can withdraw.</p><br>
+        <p>Set aside the above rules, you can withdraw your investment, in part or in full, at any time, by simply sending a message asking for withdrawal (and stating the amount to withdraw) to "EIF SpokesPerson". Your withdrawal should be processed in less than 48 hours (or on Sunday during week-ends).</p>
+
+        <h4>Why is "EIF SpokesPerson" such a young character ?</h4>
+
+        <p>You might wonder why "EIF SpokesPerson" is such a young character when this website states that EIF's members have been in Eve Online since 2008. The reason for this is that disclosing the identity of EIF's members could hurt their ingame activities (griefers, gankers, etc...), which led them to decide and create a new public-facing character for this investment venture.</p>
+
+        <h4>How does EIF invest my ISK ?</h4>
+
+        <p>While we cannot fully disclose the techniques used to achieve such performances on New Eden's markets, EIF will trade and build anything that is profitable (T2 mods, T2 sub-caps, T3, caps, etc...), anywhere in New Eden...</p><br>    
+        <h4>Can I add on to my investment or reinvest my interest ?</h4>
+
+        <p>Yes you can ! You just have to send ISK to EIF SpokesPerson, and the amount sent will automatically be added to your current investment (there is no minimum addon value to allow even the smallest of investors to reinvest their interest if they want to).</p><br> 
+        
+        <div class="credits">By EIF...</div>
+    </div>
+    <h2>EIF</h2>
+</div>
+
+
+

@@ -1,0 +1,164 @@
+@font-face {
+    font-family: Eve;
+    src: url('eve.ttf'),
+         url('eve.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: Retro;
+    src: url('retro.ttf') format('truetype'),
+         url('retro.eot?#iefix') format('embedded-opentype');
+}  
+
+body {
+    background: url("images/background.jpg") no-repeat right bottom;
+    background-attachment: fixed;
+}
+
+h1 {
+    font-family: Eve;
+    color: white;
+    font-size:35pt;
+    text-align:center;
+}
+
+h2 {
+    font-family: Eve;
+    color: white;
+    font-size:20pt;
+    text-align:center;
+}
+
+h3 {
+    font-family: Retro;
+    color: WhiteSmoke;
+    text-decoration: underline;
+    font-size:20pt;
+    text-align:center;
+}
+
+h4 {
+    font-family: Eve;
+    color: WhiteSmoke;
+    text-decoration: overline underline;
+    font-size:18pt;
+    text-align:center;
+}
+
+p {
+    margin-top: 0em;
+    margin-bottom: 0em;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+u {
+    font-size: 16pt;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    font-family: Retro;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+ul li {
+    line-height: 1.7em;
+    padding: 10px;
+    border-style:solid;
+    border-color:white;
+    border-width:2px 2px 2px 2px;
+    background-color: black;
+    font-family: Retro;
+    color: white;
+}
+
+a:link {
+    color: rgb(255,255,255);
+    text-decoration:none;
+}
+
+a:visited {
+    color: rgb(255,255,255);
+    text-decoration:none;
+}
+
+div.content {
+    margin: 0 auto;
+    margin-left: 235px;
+    margin-right: 20px;
+    width: auto;
+    text-align: center;
+}
+div.side {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    background: black;
+    width: 136px;
+}
+
+div.box {
+    border-radius: 25px;
+    font-family: "Arial Black", sans-serif;
+    border : solid rgba(25, 25, 25, .2);
+    border-width: 20px;
+    padding: 10px;
+    background: gray;
+    background: rgb(240, 248, 255);
+    background: rgba(220, 220, 220, .7);
+    color: black;
+    text-align: justify;
+    font-size: 12pt;
+}
+
+div.credits {
+    font-family: Retro;
+    font-size: 8pt;
+    font-style: italic;
+    text-align: right;
+}
+
+div.disclaimer {
+    font-family: "Courier New";
+    color : DarkRed;
+    font-size: 17pt;
+    font-weight: bold;
+}
+
+#EveLogin {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    width:195px;
+    height:30px;
+    background: url("images/EVEConnect.png") no-repeat left top;
+}
+
+#Portrait {
+    display: inline-block;
+    margin: 0 auto;
+    width:195px;
+    height:189px;
+    background: url("images/Portrait.png") no-repeat left top;
+}
+
+#Week2Graph {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:480px;
+    height:288px;
+    background: url("images/Week2Graph.png") no-repeat left top;
+}
+
+#BumpIt {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:225px;
+    height:225px;
+    background: url("images/BumpIt.png") no-repeat left top;
+}
