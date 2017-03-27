@@ -16,7 +16,7 @@
         <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
         <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
         <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
-        <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+        <li><a href="{% url 'home:About' %}">BUSINESS PLAN</a></li>
         </ul>
     </div>
     <h1>{{ Transaction.TransactionDateTime }}</h1>

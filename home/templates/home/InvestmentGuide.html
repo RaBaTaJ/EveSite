@@ -16,7 +16,7 @@
                 <li><a href="{% url 'WalletJournal:My Full Investment' %}">MY INVESTMENT</a></li>
                 <li><a href="{% url 'WalletJournal:index' %}">MY TRANSACTIONS</a></li>
                 <li><a href="https://login.eveonline.com/oauth/authorize/?response_type=code&redirect_uri=http://www.eveinvestmentfund.xyz/WalletJournal/oauth.html&client_id=d9bc2f9e37f3450e8318fe440fdd2302&scope=&state={{ request.session.session_key }}"><div id="EveLogin"></div></a></li>
-                <li><a href="{% url 'home:About' %}">ABOUT</a></li>
+                <li><a href="{% url 'home:About' %}">BUSINESS PLAN</a></li>
             </ul>
     </div>
     <h1>EVE Investment Fund</h1>    
@@ -28,10 +28,10 @@
         <div class="disclaimer"><p>The "Log in with EvE" button allows you to log you in on EvE Online's website and chose which character's transaction history you want to see.
         EIF only retrieves the selected character name in order to check it against the EIF API and retrieve your transactions. EIF requires ABSOLUTELY NO ACCESS TO YOUR ACCOUNT OR DATA when you use the login button (public data only).</p></div><br>
 
-        </div><br><div class="box">
+        </div><br><br><div class="box">
         <h4>How do I invest ?</h4>
 
-        <p>THE MINIMUM INVESTMENT IS 20M ISK (no maximum investment, please contact EIF beforehand for investments < 20B). Investments less than 20M will not be registered and you will need to ask "EIF SpokesPerson" for a refund.</p><br> 
+        <p>THE MINIMUM INVESTMENT IS 20M ISK (no maximum investment, please contact EIF beforehand for investments > 50B). Investments less than 20M will not be registered and you will need to ask "EIF SpokesPerson" for a refund.</p><br> 
         <p>To invest, you just need to send your desired investment amount to "EIF SpokesPerson" (search for "EIF SpokesPerson" ingame, right-click and use the "Give Money" button). Give the API 30 minutes and you should be able to see your investment on the website.</p><br>
 
         <div class="disclaimer"><p>Your investment should only ever be sent to "EIF SpokesPerson", as you will NEVER be required to send your investment to anyone else than "EIF SpokesPerson". Please be wary of imposters and scammers, thank you.</p></div><br>
@@ -51,7 +51,7 @@
 
         <h4>How does EIF invest my ISK ?</h4>
 
-        <p>While we cannot fully disclose the techniques used to achieve such performances on New Eden's markets, EIF will trade and build anything that is profitable, anywhere in New Eden...</p>
+        <p>While we cannot fully disclose the techniques used to achieve such performances on New Eden's markets, EIF will trade and build anything that is profitable, anywhere in New Eden... If you wish to learn more please read our BUSINESS PLAN.</p>
 
         <h4>Is this a ponzi scheme ?</h4>
 
@@ -66,7 +66,7 @@
         <p>You might wonder why our characters are so young when this website states that EIF's members have been in Eve Online since 2008. The reason for this is that disclosing the identity of EIF's members could hurt their ingame activities (griefers, gankers, etc...), which led them to decide and create new public-facing characters for this investment venture.</p>
 
         <!--
-        </div><br><div class="box">
+        </div><br><br><div class="box">
         <h4>Refferal program</h4>
 
         <p>To earn a refferal, you need a first-time investor to type your name in the comment box when he makes his first investment.
