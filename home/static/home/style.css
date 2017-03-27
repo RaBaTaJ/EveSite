@@ -130,6 +130,10 @@ div.disclaimer {
     font-weight: bold;
 }
 
+.indented {
+    padding-left: 50pt;
+}
+
 #EveLogin {
     display: inline-block;
     vertical-align: middle;
