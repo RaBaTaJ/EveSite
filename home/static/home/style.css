@@ -131,7 +131,7 @@ div.disclaimer {
 }
 
 div.indented {
-    padding-left: 50pt;
+    text-indent: 50pt;
 }
 
 #EveLogin {
