@@ -139,6 +139,8 @@ def UpdateDB():
                         Cursor.execute('SELECT TotalInvestment FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[2]))
                         MaxRefferalPayment = Cursor.fetchone()
                         MaxRefferalPayment = float(MaxRefferalPayment[0])*0.05
+                        if MaxRefferalPayment > 25000000:
+                            MaxRefferalPayment = 25000000
                         if MaxRefferalPayment > row[1]:
                             Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
                         else:
