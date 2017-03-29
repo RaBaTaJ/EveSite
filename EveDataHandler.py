@@ -126,25 +126,25 @@ def UpdateDB():
                     NewID = 1
                 #Insert Entry
                 Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2},{3},{4},{5})'.format(NewID, row[4], row[1], 0, 0, 0))
-
+                Comment = row[3]
+                Comment = Comment[6:]
 
 #TEST CODE FOR REFFERALS
-                if row[3] in InvestorList:
-                    Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET Refferals = Refferals + 1  WHERE CharacterName = "{0}"'.format(row[3]))
-                    Cursor.execute('SELECT Refferals FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[3]))
+                if Comment in InvestorList:
+                    Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET Refferals = Refferals + 1  WHERE CharacterName = "{0}"'.format(Comment))
+                    Cursor.execute('SELECT Refferals FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(Comment))
                     Refferals = Cursor.fetchone()
                     Refferals = Refferals[0]
-                    if Refferals in (1, 3, 7):
-                        Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET LastRefferalAmount = {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
-                        Cursor.execute('SELECT TotalInvestment FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[2]))
+                    if Refferals in (1, 5):
+                        Cursor.execute('SELECT TotalInvestment FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(Comment))
                         MaxRefferalPayment = Cursor.fetchone()
                         MaxRefferalPayment = float(MaxRefferalPayment[0])*0.05
                         if MaxRefferalPayment > 25000000:
                             MaxRefferalPayment = 25000000
                         if MaxRefferalPayment > row[1]:
-                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
+                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], Comment))
                         else:
-                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(MaxRefferalPayment, row[3]))
+                            Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(MaxRefferalPayment, Comment))
 #TEST CODE FOR REFFERALS
 
 
@@ -171,7 +171,7 @@ def UpdateDB():
             if row[4] == MyChar and "REFFERAL" in row[3]:
                 print("Trying to apply refferal payment")
                 #Get new investment value
-                Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[3]))
+                Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET RefferalBalance = RefferalBalance + {0} WHERE CharacterName = "{1}"'.format(row[1], row[5]))
 #TEST CODE FOR REFFERALS
 
     #Update Statistics
