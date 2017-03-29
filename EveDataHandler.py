@@ -99,6 +99,8 @@ def UpdateDB():
         if row[2] == 0:
             Cursor.execute('DELETE from WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[1]))
 
+    print(InvestorList)
+
     #Update Investments based on transactions
     for row in Investments:
         #If transaction not already processed
