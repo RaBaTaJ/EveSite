@@ -129,7 +129,7 @@ def UpdateDB():
                 #Insert Entry
                 Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2},{3},{4},{5})'.format(NewID, row[4], row[1], 0, 0, 0))
                 Comment = row[3]
-                print(Comment)
+                print("| {0} |".format(Comment))
 
 #TEST CODE FOR REFFERALS
                 if Comment in InvestorList:
