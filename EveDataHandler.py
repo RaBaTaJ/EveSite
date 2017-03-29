@@ -127,11 +127,11 @@ def UpdateDB():
                 #Insert Entry
                 Cursor.execute('INSERT INTO WalletJournal_charactertotalinvestment VALUES ({0},"{1}",{2},{3},{4},{5})'.format(NewID, row[4], row[1], 0, 0, 0))
                 Comment = row[3]
-                Comment = Comment[6:]
                 print(Comment)
 
 #TEST CODE FOR REFFERALS
                 if Comment in InvestorList:
+                    print("Trying to apply a refferal for {0}".format(Comment))
                     Cursor.execute('UPDATE WalletJournal_charactertotalinvestment SET Refferals = Refferals + 1  WHERE CharacterName = "{0}"'.format(Comment))
                     Cursor.execute('SELECT Refferals FROM WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(Comment))
                     Refferals = Cursor.fetchone()
