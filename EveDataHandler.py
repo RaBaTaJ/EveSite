@@ -99,8 +99,6 @@ def UpdateDB():
         if row[2] == 0:
             Cursor.execute('DELETE from WalletJournal_charactertotalinvestment WHERE CharacterName = "{0}"'.format(row[1]))
 
-    print(InvestorList)
-
     #Update Investments based on transactions
     for row in Investments:
         #If transaction not already processed
@@ -131,7 +129,6 @@ def UpdateDB():
                 Comment = row[3]
                 Comment = Comment.replace("\r","")
                 Comment = Comment.replace("\n","")
-                print("| {0} |".format(Comment))
 
 #TEST CODE FOR REFFERALS
                 if Comment in InvestorList:
