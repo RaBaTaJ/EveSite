@@ -7,7 +7,7 @@ from .models import HomeNotice
 
 # Create your views here.
 def index(request):
-    latest_homenotice_list = HomeNotice.objects.order_by('-PubDate')[:5]
+    latest_homenotice_list = HomeNotice.objects.order_by('-PubDate')
     context = {'latest_homenotice_list': latest_homenotice_list}
     return render(request, 'home/index.html', context)
 
