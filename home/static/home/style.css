@@ -159,6 +159,22 @@ div.indented {
     background: url("images/Week2Graph.png") no-repeat left top;
 }
 
+#Week3Graph {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:480px;
+    height:288px;
+    background: url("images/Week3Graph.png") no-repeat left top;
+}
+
+#Week3GlobalGraph {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:581px;
+    height:248px;
+    background: url("images/Week3GlobalGraph.png") no-repeat left top;
+}
+
 #BumpIt {
     vertical-align: middle;
     margin: 0 auto;
