@@ -26,6 +26,8 @@ SECRET_KEY = '04lkjt(+!(h_1irbash&nfw25-wq@8k$it!)jkw(=ub$q)a$eb'
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    "185.122.58.81"
+    "185.122.58.81"
     "www.eveinvestmentfund.xyz",
     "eveinvestmentfund.xyz",
     "127.0.0.1",            

@@ -9,6 +9,7 @@ class Transaction(models.Model):
     TransactionFrom = models.CharField("From", max_length=75)
     TransactionTo = models.CharField("To", max_length=75)
     RefID = models.CharField("RefID", max_length=25)
+    
 
     def __str__(self):
         return self.TransactionComment

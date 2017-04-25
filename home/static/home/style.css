@@ -182,3 +182,35 @@ div.indented {
     height:225px;
     background: url("images/BumpIt.png") no-repeat left top;
 }
+
+#NETG_LOL {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:881px;
+    height:114px;
+    background: url("images/NETG_LOL.png") no-repeat left top;
+}
+
+#NETG_LOL2 {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:1063px;
+    height:267px;
+    background: url("images/NETG_LOL2.png") no-repeat left top;
+}
+
+#Week4Graph {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:480px;
+    height:288px;
+    background: url("images/Week4Graph.png") no-repeat left top;
+}
+
+#Week4GlobalGraph {
+    vertical-align: middle;
+    margin: 0 auto;
+    width:581px;
+    height:248px;
+    background: url("images/Week4GlobalGraph.png") no-repeat left top;
+}
