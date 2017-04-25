@@ -23,11 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '04lkjt(+!(h_1irbash&nfw25-wq@8k$it!)jkw(=ub$q)a$eb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "185.122.58.81"
-    "185.122.58.81"
+    "185.122.58.81",
     "www.eveinvestmentfund.xyz",
     "eveinvestmentfund.xyz",
     "127.0.0.1",            
